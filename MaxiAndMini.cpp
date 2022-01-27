@@ -52,7 +52,7 @@ struct Pair getminmax(int arr[], int low, int high)
         }
         return minmax;
     }
-    // for more than teo elements
+    // for more than two elements
     int mid;
     mid = (low + high) / 2;
     cleft = getminmax(arr, low, mid);
