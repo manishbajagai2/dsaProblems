@@ -58,11 +58,12 @@ int optimized(int arr[], int n)
 int kadane(int arr[], int n)
 {
     int curSum = arr[0], maxSoFar = arr[0];
-    for(int i = 1; i < n; i++){
+    for (int i = 1; i < n; i++)
+    {
         curSum = max(arr[i], curSum + arr[i]);
         maxSoFar = max(curSum, maxSoFar);
     }
-    return curSum;
+    return maxSoFar;
 }
 
 int main()
@@ -77,7 +78,7 @@ int main()
 
     cout << "\nLargest sum contiguous subarray using in O(n^2) is " << optimized(arr2, n) << endl;
 
-    cout<<"\nLargest sum contiguous subarray using Kadane's Algorithm is "<< kadane(arr3, n)<< endl;
+    cout << "\nLargest sum contiguous subarray using Kadane's Algorithm is " << kadane(arr3, n) << endl;
 
     cout << endl;
     return 0;
