@@ -41,6 +41,45 @@ int linearMerging(int a[], int b[], int n, int m)
         return ((m1 + m2) / 2);
 }
 
+// Time Complexity is O((n+m) Log (n+m)) and Space Complexity is O(n+m)
+int Solution(int arr[], int n)
+{
+    // If length of array is even
+    if (n % 2 == 0)
+    {
+        int z = n / 2;
+        int e = arr[z];
+        int q = arr[z - 1];
+        int ans = (e + q) / 2;
+        return ans;
+    }
+
+    // If length if array is odd
+    else
+    {
+        int z = round(n / 2);
+        return arr[z];
+    }
+}
+
+int mathematical(int arr1[], int arr2[], int i, int j)
+{
+    int arr3[i + j];
+    int l = i + j;
+    for (int k = 0; k < i; k++)
+    {
+        arr3[k] = arr1[k];
+    }
+
+    int a = 0;
+    for (int k = i; k < l; k++)
+    {
+        arr3[k] = arr2[a++];
+    }
+    sort(arr3, arr3 + l);
+    return Solution(arr3, l);
+}
+
 int main()
 {
     int ar1[] = {-5, 3, 6, 12, 15};
@@ -49,6 +88,8 @@ int main()
     int n2 = sizeof(ar2) / sizeof(ar2[0]);
 
     cout << "\nBy linearly merging two arrays, median is " << linearMerging(ar1, ar2, n1, n2) << endl;
+
+    cout << "\nBy mathematical approach, the median is " << mathematical(ar1, ar2, n1, n2) << endl;
 
     cout << endl;
     return 0;
